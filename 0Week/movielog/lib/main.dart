@@ -121,44 +121,97 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class StartScreen extends StatelessWidget {
+class StartScreen extends StatelessWidget{
   const StartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF8F6F2),
       body: SafeArea(
-        child: Column(
-          children: [
-            const Icon(
-              Icons.movie_outlined,
-              size: 72,
-              color: Colors.deepPurple,
-            ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 32,
+            vertical: 24,
+          ),
+          child: Column(
+            children: [
+              const SizedBox(height: 24),
 
-            const Text(
-              '영화의 순간을 기록하세요',
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+              const Text(
+                'FLUTTER 0 주차',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black54,
+                ),
               ),
-            ),
-              
-            ElevatedButton(
-              onPressed: () {
-                debugPrint('시작하기 버튼을 눌렀습니다.');
-               },
-               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 48),
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-               ),
-               child: const Text('시작하기'),
-            ),  
-        ],
-      )),
+
+              const Spacer(),
+
+              Column(
+                children: [
+                  const Icon(
+                    Icons.movie_outlined,
+                    size: 72,
+                    color: Colors.deepPurple,
+                  ),
+                  
+                  const SizedBox(height: 80),
+
+                  const Text(
+                    '영화의 순간을\n기록하세요',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 38,
+                      fontWeight: FontWeight.w400,
+                      height: 1.2,
+                    ),
+                  ),
+                  
+                  const SizedBox(height: 16),
+
+                  const Text(
+                    '보고 싶은 영화부터 나만의 평점까지\n한곳에서 관리해요',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                      height: 1.5,
+                    ),
+                  ),
+                ],
+              ),
+
+              const Spacer(),
+
+              SizedBox(
+                width: double.infinity,
+                height: 58,
+                child: ElevatedButton(
+                  onPressed: () {
+                    debugPrint('시작하기 버튼');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                  ),
+                  child: const Text(
+                    '시작하기',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 24),
+            ],
+          ),
+        )
+      ),
     );
   }
 }
